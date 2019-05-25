@@ -2,10 +2,16 @@ require([
     "esri/Map",
     "esri/views/MapView",
     "esri/widgets/BasemapToggle", 
-    "esri/widgets/BasemapGallery"
+    "esri/widgets/BasemapGallery",
+    "esri/layers/FeatureLayer",
+    "esri/symbols/SimpleMarkerSymbol",
+     "esri/Graphic",
+    "esri/geometry/Polygon",
+    "esri/symbols/SimpleFillSymbol",
 
-  ], function(Map, MapView, BasemapToggle, BasemapGallery) {
-
+  ], function(Map, MapView, BasemapToggle, BasemapGallery, FeatureLayer, Graphic, SimpleMarkerSymbol, Polygon, SimpleFillSymbol) {
+    
+    //config
     const map = new Map({
         basemap: "dark-gray-vector"
     });
@@ -13,9 +19,11 @@ require([
     const view = new MapView({
         container: "viewDiv",
         map: map,
-        center: [-90.242347,38.597015],
+        center: [-90.242347, 38.597015],
         zoom: 15
     });
+
+    //ui
     const baseTog = new BasemapToggle({ // basemap toggle
         view: view,
         nextBasemap: "satellite",
@@ -29,6 +37,8 @@ require([
             }
         }
     });
+
+    //point
     const point = {
         type: "point",
         x: -90.242347, 
@@ -39,16 +49,35 @@ require([
         color: [255, 255, 255],
         width: 1
     };
+
     const pointGraphic = {
         type: "graphic",
         geometry: point,
         symbol: markerSymbol
     };
-    //view.ui.add(baseTog, "top-right");
 
-    view.ui.add(baseGall, {
+    //census layer
+    const feaLay = new FeatureLayer({
+        url: "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Tracts_Blocks/MapServer/5",
+    });
+    // var fillSymbol = new SimpleFillSymbol({
+    //     color: [227, 139, 79, 0.8],
+    //     outline: {
+    //       color: [255, 255, 255],
+    //       width: 1
+    //     }
+    //   });
+    //   var polygonGraphic = new Graphic({
+    //     geometry: feaLay,
+    //     symbol: fillSymbol
+    //   });
+
+
+    view.ui.add(baseTog, {
         position: "top-right"
     });
     view.graphics.add(pointGraphic);
+    // view.graphics.add(feaLay);
 
+    map.add(feaLay);
   });

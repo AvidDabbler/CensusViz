@@ -4,8 +4,8 @@ require([
     "esri/widgets/BasemapToggle", 
     "esri/widgets/BasemapGallery",
     "esri/layers/FeatureLayer",
+    "esri/Graphic",
     "esri/symbols/SimpleMarkerSymbol",
-     "esri/Graphic",
     "esri/geometry/Polygon",
     "esri/symbols/SimpleFillSymbol",
 
@@ -57,8 +57,36 @@ require([
     };
 
     //census layer
+    // function createFillSymbol(value, color){
+    //     return{
+    //         "symbol":{
+    //             "color": color,
+    //             "type": "simple-fill",
+    //             "style": "solid",
+    //             "outline": {
+    //                 "style": "none"
+    //             }
+    //         },
+    //         "label": value
+    //     };
+    // }
+    var openSpacesRenderer = {
+        type: "simple",
+        symbol: {
+            type: "simple-fill",
+            color: [ 255, 128, 200, 0.5 ],
+            outline: {  // autocasts as new SimpleLineSymbol()
+                width: 0.5,
+                color: "white"
+              }
+        }
+    };
+    
+
     const feaLay = new FeatureLayer({
         url: "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Tracts_Blocks/MapServer/5",
+        renderer: openSpacesRenderer,
+
     });
     // var fillSymbol = new SimpleFillSymbol({
     //     color: [227, 139, 79, 0.8],

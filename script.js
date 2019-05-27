@@ -57,7 +57,7 @@ require([
     };
 
     //census layer
-    // function createFillSymbol(value, color){
+    // function createFillSymbol(value, color){ // https://developers.arcgis.com/javascript/latest/guide/style-feature-layers/
     //     return{
     //         "symbol":{
     //             "color": color,
@@ -70,7 +70,8 @@ require([
     //         "label": value
     //     };
     // }
-    var openSpacesRenderer = {
+    var openSpacesRenderer = { // https://developers.arcgis.com/javascript/latest/api-reference/esri-renderers-SimpleRenderer.html
+
         type: "simple",
         symbol: {
             type: "simple-fill",
@@ -85,8 +86,7 @@ require([
 
     const feaLay = new FeatureLayer({
         url: "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Tracts_Blocks/MapServer/5",
-        renderer: openSpacesRenderer,
-
+        renderer: openSpacesRenderer, // connects to the SimpleRenderer information 
     });
     // var fillSymbol = new SimpleFillSymbol({
     //     color: [227, 139, 79, 0.8],

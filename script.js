@@ -70,7 +70,7 @@ require([
     //         "label": value
     //     };
     // }
-    var openSpacesRenderer = { // https://developers.arcgis.com/javascript/latest/api-reference/esri-renderers-SimpleRenderer.html
+    const openSpacesRenderer = { // https://developers.arcgis.com/javascript/latest/api-reference/esri-renderers-SimpleRenderer.html
 
         type: "simple",
         symbol: {
@@ -82,11 +82,15 @@ require([
               }
         }
     };
-    
+    const feaLayPop = {
+        "title": "Census Block Groups",
+        "content": "Hello There!!!"
+    }
 
     const feaLay = new FeatureLayer({
         url: "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Tracts_Blocks/MapServer/5",
         renderer: openSpacesRenderer, // connects to the SimpleRenderer information 
+        popupTemplate: feaLayPop
     });
     // var fillSymbol = new SimpleFillSymbol({
     //     color: [227, 139, 79, 0.8],

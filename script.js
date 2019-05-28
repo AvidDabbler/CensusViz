@@ -82,29 +82,19 @@ require([
               }
         }
     };
-    const feaLayPop = {
+    const feaLayPop = { // popup configuration
         "title": "Census Block Groups",
-        "content": "Hello There!!!"
+        "content": "Hello There!!! {GEOID}"
     }
 
     const feaLay = new FeatureLayer({
         url: "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Tracts_Blocks/MapServer/5",
         renderer: openSpacesRenderer, // connects to the SimpleRenderer information 
+        outFields: ["GEOID"],
         popupTemplate: feaLayPop
     });
-    // var fillSymbol = new SimpleFillSymbol({
-    //     color: [227, 139, 79, 0.8],
-    //     outline: {
-    //       color: [255, 255, 255],
-    //       width: 1
-    //     }
-    //   });
-    //   var polygonGraphic = new Graphic({
-    //     geometry: feaLay,
-    //     symbol: fillSymbol
-    //   });
 
-
+    // CALLS
     view.ui.add(baseTog, {
         position: "top-right"
     });

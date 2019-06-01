@@ -4,21 +4,17 @@ require([
     "esri/widgets/BasemapToggle", 
     "esri/widgets/BasemapGallery",
     "esri/layers/FeatureLayer",
-    "esri/Graphic",
-    "esri/symbols/SimpleMarkerSymbol",
-    "esri/geometry/Polygon",
-    "esri/symbols/SimpleFillSymbol",
 
-  ], function(Map, MapView, BasemapToggle, BasemapGallery, FeatureLayer, Graphic, SimpleMarkerSymbol, Polygon, SimpleFillSymbol) {
+  ], function(Map, MapView, BasemapToggle, BasemapGallery, FeatureLayer) {
     
-    //config
-    const map = new Map({
+    //config base map
+    const mapConfig = new Map({
         basemap: "dark-gray-vector"
     });
 
     const view = new MapView({
         container: "viewDiv",
-        map: map,
+        map: mapConfig,
         center: [-90.242347, 38.597015],
         zoom: 15
     });
@@ -28,15 +24,7 @@ require([
         view: view,
         nextBasemap: "satellite",
     });
-    const baseGall = new BasemapGallery({
-        view: view,
-        source: {
-            portal:{
-                url: "https://www.arcgis.com", 
-                useVectorBasemaps: true
-            }
-        }
-    });
+
 
     //point
     const point = {
@@ -56,20 +44,6 @@ require([
         symbol: markerSymbol
     };
 
-    //census layer
-    // function createFillSymbol(value, color){ // https://developers.arcgis.com/javascript/latest/guide/style-feature-layers/
-    //     return{
-    //         "symbol":{
-    //             "color": color,
-    //             "type": "simple-fill",
-    //             "style": "solid",
-    //             "outline": {
-    //                 "style": "none"
-    //             }
-    //         },
-    //         "label": value
-    //     };
-    // }
     const openSpacesRenderer = { // https://developers.arcgis.com/javascript/latest/api-reference/esri-renderers-SimpleRenderer.html
 
         type: "simple",
@@ -87,19 +61,17 @@ require([
         "content": "Hello There!!! {GEOID}"
     }
 
-    const feaLay = new FeatureLayer({
+    const feaLay = new FeatureLayer({  // connects to the SimpleRenderer information
         url: "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Tracts_Blocks/MapServer/5",
-        renderer: openSpacesRenderer, // connects to the SimpleRenderer information 
+        renderer: openSpacesRenderer,  
         outFields: ["GEOID"],
         popupTemplate: feaLayPop
     });
 
     // CALLS
     view.ui.add(baseTog, {
-        position: "top-right"
+        position: "bottom-right"
     });
     view.graphics.add(pointGraphic);
-    // view.graphics.add(feaLay);
-
-    map.add(feaLay);
+    mapConfig.add(feaLay);
   });

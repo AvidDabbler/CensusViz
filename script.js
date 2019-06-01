@@ -58,13 +58,15 @@ require([
     };
     const feaLayPop = { // popup configuration
         "title": "Census Block Groups",
-        "content": "Hello There!!! {GEOID}"
+        "content": "Population 2000: {pop2000} </br> Population 2007: {pop2007} </br> Population Density 2000: {pop00_sqmi} </br> Population Density: {pop07_sqmi} </br> Renter: {RENTER_OCC} </br> Owner: {OWNER_OCC}"
     }
 
     const feaLay = new FeatureLayer({  // connects to the SimpleRenderer information
-        url: "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Tracts_Blocks/MapServer/5",
+        url: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/1",
         renderer: openSpacesRenderer,  
-        outFields: ["GEOID"],
+        outFields: 
+        ["OWNER_OCC",
+        "RENTER_OCC"],
         popupTemplate: feaLayPop
     });
 

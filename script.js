@@ -44,7 +44,7 @@ require([
         symbol: markerSymbol
     };
 
-    const openSpacesRenderer = { // https://developers.arcgis.com/javascript/latest/api-reference/esri-renderers-SimpleRenderer.html
+    const censusRender = { // https://developers.arcgis.com/javascript/latest/api-reference/esri-renderers-SimpleRenderer.html
 
         type: "simple",
         symbol: {
@@ -63,10 +63,7 @@ require([
 
     const feaLay = new FeatureLayer({  // connects to the SimpleRenderer information
         url: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/1",
-        renderer: openSpacesRenderer,  
-        outFields: 
-        ["OWNER_OCC",
-        "RENTER_OCC"],
+        renderer: censusRender,  
         popupTemplate: feaLayPop
     });
 

@@ -13,13 +13,40 @@
   </style>
   
   <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/css/main.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css">
   <script src="https://js.arcgis.com/4.11/"></script>
   
  
 </head>
 <body>
+    
+
   <div id="viewDiv">
+      <div id="toggle-box">
+          <ul>
+              <li>
+                <input id="input0" type="radio" name="input" value="Population"/>
+                <label for="input0">Population</label>
+              </li>
+              <li>
+                <input id="input1" type="radio" name="input" value="vacant"/>
+                <label for="input1">Vacant Housing</label>
+              </li>
+              <li>
+                <input id="input2" type="radio" name="input" value="owner"/>
+                <label for="input2">Owner Occupied</label>
+              </li>
+              <li>
+                <input id="input3" type="radio" name="input" value="renter"/>
+                <label for="input3">Renter Occupied</label>
+              </li>
+              <li>
+                <input id="input4" type="radio" name="input" value="black"/>
+                <label for="input4">Black Population</label>
+              </li>
+            </ul>        </div>
       <script src="script.js"></script>
   </div>
+
 </body>
 </html>

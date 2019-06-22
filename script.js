@@ -87,7 +87,7 @@ require([
 
     // CALLS
     viewConfig.ui.add(baseTog, {
-        position: "bottom-right"
+        position: "top-right"
     });
     viewConfig.graphics.add(pointGraphic);
     mapConfig.add(feaLay);

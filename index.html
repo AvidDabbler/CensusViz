@@ -3,14 +3,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>CensusViz App</title>
-  <style>
-    html, body, #viewDiv {
-      padding: 0;
-      margin: 0;
-      height: 100%;
-      width: 100%;
-    }
-  </style>
   
   <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/css/main.css">
   <link rel="stylesheet" type="text/css" media="screen" href="main.css">
@@ -19,32 +11,26 @@
  
 </head>
 <body>
-    
-
+      
   <div id="viewDiv">
       <div id="toggle-box" >
-          <ul>
-              <li>
-                <input id="pop" type="radio" name="input" value="pop" onclick ="radioFunction();"/>
-                <label for="input0">Population</label>
-              </li>
-              <li>
-                <input id="vacant" type="radio" name="input" value="vacant" onclick ="radioFunction();"/>
-                <label for="input1">Vacant Housing</label>
-              </li>
-              <li>
-                <input id="owner" type="radio" name="input" value="owner" onclick ="radioFunction();"/>
-                <label for="input2">Owner Occupied</label>
-              </li>
-              <li>
-                <input id="renter" type="radio" name="input" value="renter" onclick ="radioFunction();"/>
-                <label for="input3">Renter Occupied</label>
-              </li>
-              <li>
-                <input id="black" type="radio" name="input" value="black" onclick ="radioFunction();"/>
-                <label for="input4">Black Population</label>
-              </li>
-            </ul>        </div>
+        <button type="button" class="button" id="pop" onclick="config(`pop`)">
+          <h4>Population</h4>
+        </button>
+        <button type="button" class="button" id="senior" onclick="config(`senior`)">
+          <h4>Senior</h4>
+        </button>
+        <button type="button" class="button" id="hisp" onclick="config(`hisp`)">
+          <h4>Hispanic</h4>
+        </button>
+        <button type="button" class="button" id="oneCar" onclick="config(`renter`)">
+          <h4>Renter</h4>
+        </button>
+        <button type="button" class="button" id="pov" onclick="config(`vac`)">
+          <h4>Vacant</h4>
+        </button>
+      
+      </div>
       <script src="script.js"></script>
   </div>
 

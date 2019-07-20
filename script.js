@@ -34,7 +34,7 @@ const symb = {//! LAYER CHOICES
             ]},
         popup:{
             "title": "Census Block Groups",
-            "content": "Population 2000: {pop2000} </br> Population 2007: {pop2007} </br> Population Density 2000: {pop00_sqmi} </br> Population Density: {pop07_sqmi} </br> Renter: {RENTER_OCC} </br> Owner: {OWNER_OCC}"
+            "content": "Population {pop07_sqmi}"
         }
 
     },
@@ -61,7 +61,7 @@ const symb = {//! LAYER CHOICES
             ]},
         popup:{
             "title": "Senior Block Groups",
-            "content": "Population 2000: {pop2000} </br> Population 2007: {pop2007} </br> Population Density 2000: {pop00_sqmi} </br> Population Density: {pop07_sqmi} </br> Renter: {RENTER_OCC} </br> Owner: {OWNER_OCC}"
+            "content": "Senior Population: {AGE_65_UP}"
         }
     },
     hisp:{ 
@@ -87,7 +87,7 @@ const symb = {//! LAYER CHOICES
             ]},
         popup:{ 
             "title": "Hispanic Block Groups",
-            "content": "Population 2000: {pop2000} </br> Population 2007: {pop2007} </br> Population Density 2000: {pop00_sqmi} </br> Population Density: {pop07_sqmi} </br> Renter: {RENTER_OCC} </br> Owner: {OWNER_OCC}"
+            "content": "Hispanic: {HISPANIC}"
         }
     },
     renter:{ 
@@ -113,7 +113,7 @@ const symb = {//! LAYER CHOICES
             ]},
         popup:{ 
             "title": "Senior Block Groups",
-            "content": "Population 2000: {pop2000} </br> Population 2007: {pop2007} </br> Population Density 2000: {pop00_sqmi} </br> Population Density: {pop07_sqmi} </br> Renter: {RENTER_OCC} </br> Owner: {OWNER_OCC}"
+            "content": "Renter: {RENTER_OCC}"
         }
     },
     vac:{ 
@@ -139,7 +139,7 @@ const symb = {//! LAYER CHOICES
             ]},
         popup:{ 
             "title": "Senior Block Groups",
-            "content": "Population 2000: {pop2000} </br> Population 2007: {pop2007} </br> Population Density 2000: {pop00_sqmi} </br> Population Density: {pop07_sqmi} </br> Renter: {RENTER_OCC} </br> Owner: {OWNER_OCC}"
+            "content": "Vacant Properties: {VACANT}"
         }
     },
 };

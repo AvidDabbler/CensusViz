@@ -9,7 +9,6 @@ const defaultSymb = {//! OUTLINE PARAMETER FOR layDef
         }
 };
 
-
 const symb = {//! LAYER CHOICES
     population:{ 
         style:{
